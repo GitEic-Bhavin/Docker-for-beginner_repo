@@ -1,0 +1,17 @@
+What is Docker ?
+Docker is platform where your various types/version of OS, Software, Application you can run, deploy, shipping, Testing code etc without affecting Version Conflig , version compitablity, OS compitablity in your system.
+
+Ex. You have insatlled Nginx v-4.9.0 which is compitable on ubuntu 22.04.
+while you update ubuntu 22.04 to 24.04 , you also need to update Nginx v-4.9.0 to 5.9.0. which create conflicts.
+
+Docker will take care of this.
+
+
+What is Docker Container ?
+
+Container is Isolated Environments like workspaces.
+This container having its own processes, services, Mounts(VM) etc.
+
+Docker Image -- like a package, Template -- EC2 ami etc , Image of EC2 called Docker Image.
+
+use to create container

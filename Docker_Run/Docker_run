@@ -1,0 +1,11 @@
+﻿Docker Run
+What is Docker Tag ?
+To pull specific version of image we give tags is seperated by “:”
+docker run redis:4.0 – It will pull only version 4.0 of redis image.
+
+Docker run redis – It will use default tags named “latest”
+
+
+Run – PORT mapping
+
+

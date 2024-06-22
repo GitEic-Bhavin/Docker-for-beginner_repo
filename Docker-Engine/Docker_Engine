@@ -1,0 +1,85 @@
+﻿Docker Engine
+
+Docker is reffered to a host with Docker Installed on it.
+When you install Docker on a linux host you are actually installing 3 diff competence.
+1. Docker cli
+2. REST API Server
+3. Docker Deamon
+
+Docker Deamon is a background process that manages Docker objects such as the images containers volumes & networks.
+
+Docker REST API Server is the API Interface that programs can use to talk to the demon and provide Instructions.
+You can create your  own tools using this REST API.
+
+Docker CLI – is a terminal / command line interface that we have been using until now to perform actions like running a container , stopping container , destroying images etc.
+It uses the REST API to interact with the docker demon 
+
+To connect to your remote host & want to perform the task from your local / pc.
+docker -H=remote-docker-engine:“Port”
+docker -H=10.123.2.1:2375 run nginx
+
+What is namespace ?
+
+Docker uses namespace to isolate workspace process ids, networks inter process communications, mount and Unix Timesharing system are created in their own namespace thereby providing isolation between containers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Namespace Isolation Techniques:-
+1. Namespace – Process ID (PID)
+
+Why Namespace is comes in picture while we run docker ?
+My localhost – when i boot system there is process run called process 1 – PID:1  & kill other all process were running.
+
+My localhost has its own set of rules , instructions & process Ids also.
+Ex. I run linux, I visit chrom browser , there is 2 process are running in my localhost.
+These all process will have different process ids.
+
+Now, i installed Docker on my localhosts.
+I will create images, container, run container, destroying container, destroying image.
+This dockers all process also have its process IDs.
+
+Now, seel my localhost process ID & docker’s Process ID both are different.
+How ?
+
+Bcz, Docker is preventing / Isolating its resources, container, images, from my localhost.
+Bcz, Docker also have its own set of rules & instructions.
+
+This preventing is possible bu docker’s namespaces.
+This dockers process are runing under the container.
+This container process has different process ids.
+
+This process IDs we can see inside only in the container. 
+So, container has its own root process tree.
+
+
+									
+Docker uses our localhost’s CPU & Memory.
+
+docker run ubuntu – this is not set any restrictions for how much docker can use our localhost’s cpu & memory during running ubuntu container.
+
+To set Restrictions,
+docker run--cpus=.5 ubuntu
+docker will only use 50% of our cpu.
+
+docker run --memory=100m ubuntu
+docker will only use 100 mb of our memory due to running ubuntu container.
+
+To see the process running inside the container, use ps -eaf To see all process.
+docker exec “container_id” ps -eaf
+docker exec ebcb ps -eaf
+
+
+Check this same process is running in my localhost but with different PID
+

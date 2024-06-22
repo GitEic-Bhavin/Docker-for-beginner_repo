@@ -1,0 +1,63 @@
+﻿docker run centos
+It will pull image of centos from dokcer hub registry then run centos’s container.
+
+docker pull nginx
+It will pull/download image of nginx only not run container.
+
+To run command in interactive mode means log in into docker container & run command,
+docker run -it centos bash – bash is a command to enter in bash shell
+12e3435@docker#: hostname
+12e3435
+
+Now, check container of centos is runnig or not ?
+docker ps 
+centos container ID
+
+Not runnig.
+
+Why container of centos is not runnig ?
+Bcz, there is no any process which are runnig in this container of centos
+if no any process are not runnig then container will stop & exited itself
+
+If any of process are running then container will runnig till procees does not end.
+
+So,
+docker run centos sleep 20
+docker ps
+centos container ID
+
+
+The process ais runnnig in cotainer, centos’s
+docker rm centos
+Error: unable to delete container centos , bcz, it has process is running.
+
+docker rm “container_id” to remove container
+docker rmi “image_id” of that container
+
+docker images list
+nginx
+jenkins
+# centos not found.
+
+
+
+
+Run container with command
+docker run ubuntu sleep 100
+# Here, you can not write command or not be able to perform any command/tasks till your process sleep 100 doesn’t completed/stopped.
+
+After complete this process you can perform commands etc.
+
+Run container with command in a background
+docker run -d ubuntu sleep 100
+-d – to performe any tasks in background even your container is running state.
+
+docker run -d ubuntu sleep 100
+docker@root#: ls -ltr
+docker@root#: docker ps
+
+To run a command in a running container /inside containerid@name
+docker exec “container_id” “your_command”
+
+docker exec 1234 cat  /etc/*release.
+

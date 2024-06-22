@@ -1,0 +1,32 @@
+docker run -- Start/Run a container from an image.
+Ex. docker run nginx -- will run instance of nginx on the docker host If the nginx image already exist.
+If nginx image is not exists, it will go out to docker hub and pull iamge.
+
+docker ps -- Lists all running container only.
+
+docker ps -a -- Lists all runnig, stopped, deleted, exited container.
+
+docker stop -- to stop the container
+Ex. docker stop nginx
+
+docker rm -- to remove a stopped/exited container permanantly.
+
+
+docker images -- List all available images & its size.
+
+docker rmi -- To Remove images
+NOTE: The container which has attached / contins this images , that container must be stopped before attampting to remove image.
+
+You must stop and delete all dependent container to be able to delete an image.
+
+docker pull nginx -- It only pull/download the image of nginx & not run the container.
+
+docker exec -- to execute a command on my docker container.
+Ex. I downloaded ubuntu iamge (Instance Image)
+docker exec distracted_mcclintock cat /etc/hosts.
+
+
+docker run -d -- To Run docker container at background.
+
+docer attach "container_id/name"
+

@@ -1,0 +1,57 @@
+﻿Lab: Docker Commands
+Q-1 What is the version of Docker Server Engine running on the Host?
+A-1 docker version
+
+20.10.24
+
+Q-2 How many containers are running on this host?
+A-2 docker ps – 0
+
+Q-3 How many images are available  on this host ?
+A-3 docker images list
+Total 9 images are available
+
+Q-4 docker run redis
+
+Q-5 Stop the container you just created
+A-5 docker stop redis
+
+Q-6 How many container are RUNNIG on this host now ?
+A-6 docker ps  - 4
+
+Q-7 How many container are PRESENT on the host now ?
+Including both RUNNIG and NOT RUNNING ones
+
+A-7 docker ps -a – 6
+
+Q-8 What is the image used to run the nginx-1 container ?
+A-8 docker ps – nginx:alpine
+
+Q-9 What is the name of the container created using the ubuntu image ?
+A-9 docker ps – see in last NAME – awesome_notthcut
+
+Q-10 What is the ID of the conainer that uses the alpine image and is not running ?
+A-10 docker ps -a & docker inspect “container_id” 
+
+Q-11 Delete all container from the docker host.
+Both Running and Not Running ones. Remember you may have to stop containers before deleting them.
+
+A-11 docker stop “contaier_id” ,
+docker rm “contaier_id”
+
+Q-12 Delete the ubuntu image.
+A-12 docker rmi ubuntu
+
+Q-13 You are required to pull a docker image which will be used to run a container later. Pull the image nginx:1.14-alpine
+
+Only pull the image, do not create a container.
+A-13 docker pull nginx:1.14-alpine
+
+Q-14 Run a container with the nginx:1.14-alpine image and name it webapp
+A-14 docker run -d --name webapp nginx:1.14-alpine\
+
+Q-15 Delete all images 
+A-15  Stop all container ,
+         docker rmi $(docker images -aq)
+
+
